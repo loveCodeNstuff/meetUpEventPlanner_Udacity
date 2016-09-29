@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Meet up Event Planner
+    meta(name='author', content='Richard C Felix')
+    meta(name='description' content='Meet Up Event Planner')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    meta(charset='utf-8')
+    
+    link(href='../css/style.css', rel='stylesheet', type='text/css')
+  body    
+    header(tabindex='1')
+      span #{user.eventName} 
+    section(id='eventDetails')
+      span(tabindex='2') Type:  #{user.type} 
+      span(tabindex='3') Host:  #{user.host} 
+      span(tabindex='4') Start Date: #{user.startDate} 
+      span(tabindex='5') End Date: #{user.endDate} 
+      span(tabindex='6') Guest List: #{user.guestList} 
+      span(tabindex='7') Location: #{user.location} 
+      span(tabindex='8') Message: #{user.message}
+      input.button(type='button' value='CREATE NEW EVENT' onclick="location.href='/success'" tabindex='9')

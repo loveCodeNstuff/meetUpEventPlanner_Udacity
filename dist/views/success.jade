@@ -1,0 +1,73 @@
+extends base
+
+block body
+  header
+    span HELLO #{user}!! 
+  section(id='form')
+    form(method='POST' action='/addEvent/#{user}?_method=PUT')
+      label(for='name')
+        br
+        span(class='sr-only hide') Name of Event
+        input(type='text' id='name' name='name' onfocusout="nameInvalid()" autofocus required placeholder='NAME OF EVENT' autocomplete='name')
+        span(id='nameError' class='errorMsg')
+      label(for='type')
+        span(class='sr-only hide') Type of Event
+        input(type='text' id='type' name='type' onfocusout="typeInvalid()" required maxLength='50' placeholder='TYPE OF THE EVENT' autocomplete='type' list='typeList')
+        datalist(id='typeList')
+          option(value='Party')
+          option(value='Wedding')
+          option(value='Brial Shower')
+          option(value='BBQ')
+        span(id='typeError' class='errorMsg')  
+      label(for='host')
+        span(class='sr-only hide') Event Host
+        input(type='text' id='host' name='host' onfocusout="hostInvalid()" required minLength='0' maxLength='35' placeholder='EVENT HOST' autocomplete='host')
+        span(id='hostError' class='errorMsg')
+      label(for='startDate')
+        span(class='sr-only hide') Start Date
+        input(type='text' id='startDate' name='startDate' onfocusout="startDateInvalid()" required placeholder='START DATE' onfocus='(this.type="datetime-local")' autocomplete='startDate')  
+        span(id='startDateError' class='errorMsg')  
+      label(for='endDate')
+        span(class='sr-only hide') End Date
+        input(type='text' id='endDate' name='endDate' onfocusout="endDateInvalid()" required placeholder='END DATE' onfocus='(this.type="datetime-local")' autocomplete='endDate')               
+        span(id='endDateError' class='errorMsg') 
+      label(for='guestList')
+        span(class='sr-only hide') Guest List
+        textarea(type='text' id='guestList' name='guestList' onfocusout="guestListInvalid()" required placeholder='GUEST LIST' autocomplete='guestList')
+        span(id='guestListError' class='errorMsg') 
+      label(for='location')
+        span(class='sr-only hide') Location
+        input(type='text' id='location' name='location'  onfocusout="locationInvalid()" required placeholder='LOCATION' autocomplete='location')
+        span(id='locationError' class='errorMsg') 
+      label(for='message')
+        span(class='sr-only hide') Optional Message 
+        textarea(type='text' id='message' name='message' placeholder='MESSAGE (OPTIONAL)' autocomplete='message')
+      input.button(type='submit' value='SUBMIT')
+      include ./scripts.jade
+      script.
+          function nameInvalid(){
+            checkOutline('name', 'nameError', 'Name is Required');
+          }
+          
+          function typeInvalid(){
+            checkOutline('type', 'typeError', 'Event is Required');
+          }
+          
+          function hostInvalid(){
+            checkOutline('host', 'hostError', 'Host is Required');
+          }     
+          
+          function startDateInvalid(){
+            validDates('startDate', 'startDateError', 'Start Date is Required and Must be a Future Date', false);
+          }     
+          
+          function endDateInvalid(){
+            validDates('endDate', 'endDateError', 'End Date is Required and Must be after Start Date', true);
+          }     
+           
+          function guestListInvalid(){
+            checkOutline('guestList', 'guestListError', 'Guest List is Required');
+          }    
+          function locationInvalid(){
+            checkOutline('location', 'locationError', 'Location is Required');
+          }

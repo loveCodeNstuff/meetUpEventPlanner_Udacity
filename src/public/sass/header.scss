@@ -1,0 +1,15 @@
+/************************
+        Header
+************************/
+header {
+  background-color: $lightBlueBGColor;
+  text-align: center;
+  height: 50px;
+
+  span {
+    position: relative;
+    top: 20px;
+    left: auto;
+    color: $whiteBGColor;
+  }
+}

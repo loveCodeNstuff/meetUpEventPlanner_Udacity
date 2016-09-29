@@ -1,0 +1,17 @@
+/************************
+      Responsive
+************************/
+@media only screen and (min-width: 769px) {
+  #form, #eventDetails {
+    margin: 0 auto;
+    width: 400px;
+  }
+  #login {
+    margin: 0 auto;
+    width: 400px;
+  }
+  header {
+    margin: 0 auto;
+    width: 400px;
+  }
+}

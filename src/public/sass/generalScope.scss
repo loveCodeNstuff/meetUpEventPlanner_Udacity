@@ -1,0 +1,61 @@
+/************************
+      General Scope
+************************/
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+label {
+  display: block;
+  margin-bottom: 20px;
+}
+input, textarea{
+  height: 40px;
+  width: 95%;
+  text-align: center;
+  outline: 2px solid $lightBlueBGColor;
+}
+input:invalid, textarea:invalid{
+  outline: 2px solid red;
+  color: red;
+}
+.invalid{
+  outline: 2px solid red !important;
+  color: red;
+}
+input:not(:focus):invalid, textarea:not(:focus):invalid{
+  outline: 2px solid red;
+  color: red;
+}
+input:focus, textarea:focus {
+  outline: 2px solid blue;
+}
+textarea{
+  resize: none;
+  padding-top: 27px;
+}
+.hide {
+  display: none;
+}
+.center {
+  text-align: center;
+}
+.button {
+  background-color: $redBGColor;
+  color: $whiteBGColor;
+}
+.submitDisabled{
+  background-color: grey;
+}
+.btn{
+  width: 96.5%;
+}
+.error {
+  color: $redBGColor;
+  padding-bottom: 10px;
+}
+.errorMsg{
+  color: $redBGColor;
+}

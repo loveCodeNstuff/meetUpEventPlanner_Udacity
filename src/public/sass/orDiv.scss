@@ -1,0 +1,30 @@
+/************************
+          orDiv
+************************/
+.orDiv {
+  height: 40px;
+
+  .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $lightBlueBGColor;
+    position: relative;
+    top: -57px;
+    margin: 0 auto;
+    color: $whiteBGColor;
+
+    span {
+      position: relative;
+      top: 17px;
+    }
+  }
+
+  hr {
+    border: solid 1px $lightBlueBGColor;
+    background-color: $lightBlueBGColor;
+    width: 96%;
+    height: 3px;
+    margin: 30px 2%;
+  }
+}

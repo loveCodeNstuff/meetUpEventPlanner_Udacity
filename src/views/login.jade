@@ -1,0 +1,32 @@
+extends base
+
+block body
+  header
+    span LOGIN
+  section(id='form')
+    br
+    form(method='POST' action='/login')
+      label(for='email')
+        span(class='sr-only hide') Email
+        input(type='email' id='email' name='email' onfocusout='emailInvalid()' autofocus required placeholder='EMAIL' autocomplete='email')
+        span(id='emailError' class='errorMsg')
+      label(for='password')
+        span(class='sr-only hide') Password
+        input(type='password' id='password' name='password' onfocusout='passInvalid()' minLength='6' maxLength='35' pattern='[A-Z][a-z0-9_-]{5,35}' title='Must contain first letter Uppercase, and at least 6 or more characters' required placeholder='PASSWORD' autocomplete='password')
+        span(id='passwordError' class='errorMsg')
+      input.button(type='submit' value='SUBMIT')
+  section(id='login')
+    div.orDiv
+      hr
+      div.circle.center
+        span OR
+    input.button(type='button' value='CREATE ACCOUNT' onclick="location.href='/'")
+    include ./scripts.jade
+    script.
+        function passInvalid(){
+          checkOutline('password', 'passwordError', 'Invalid Password - Must contain first letter Uppercase, and at least 6 or more characters');
+        }
+        
+        function emailInvalid(){
+          checkOutline('email', 'emailError', 'Invalid Email Format');
+        }

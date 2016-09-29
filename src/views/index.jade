@@ -1,0 +1,49 @@
+extends base
+
+block body
+  header
+    span CREATE ACCOUNT
+  section(id='form')
+    form(method='POST' action='/create')
+      label(for='name')
+        br
+        span(class='sr-only hide') Name
+        input(type='text' id='name' name='name' onfocusout="nameInvalid()" autofocus required placeholder='NAME' autocomplete='name')
+        span(id='nameError' class='errorMsg')
+      label(for='email')
+        span(class='sr-only hide') Email
+        input(type='email' id='email' name='email' onfocusout="emailInvalid()" required placeholder='EMAIL' autocomplete='email')
+        span(id='emailError' class='errorMsg')
+      label(for='password')
+        span(class='sr-only hide') Password
+        input(type='password' id='password' onfocusout="passInvalid()" name='password' minLength='6' maxLength='35' pattern='[A-Z][a-z0-9_-]{5,35}' title='Must contain first letter Uppercase, and at least 6 or more characters' required placeholder='PASSWORD' autocomplete='password')
+        span(id='passwordError' class='errorMsg')
+      label(for='employer')
+        span(class='sr-only hide') Employer
+        input(type='text' id='employer' name='employer' placeholder='EMPLOYER ( OPTIONAL )' autocomplete='employer')
+      label(for='job')
+        span(class='sr-only hide') Job Title
+        input(type='text' id='job' name='job' placeholder='JOB TITLE ( OPTIONAL )' autocomplete='job')
+      label(for='birthday')
+        span(class='sr-only hide') Birthday
+        input(type='text' id='birthday' name='bday' placeholder='BIRTHDAY ( OPTIONAL )' onfocus='(this.type="date")' autocomplete='bday')
+      input.button(type='submit' class='btn' value='SUBMIT' )
+  section(id='login')
+    div.orDiv
+      hr
+      div.circle.center
+        span OR
+    input.button(type='button' class='btn' value='LOG IN' onclick="location.href='/login-page'")
+  include ./scripts.jade
+  script.
+      function passInvalid(){
+        checkOutline('password', 'passwordError', 'Invalid Password - Must contain first letter Uppercase, and at least 6 or more characters');
+      }
+      
+      function nameInvalid(){
+        checkOutline('name', 'nameError', 'Name is Required');
+      }
+      
+      function emailInvalid(){
+        checkOutline('email', 'emailError', 'Invalid Email Format');
+      }

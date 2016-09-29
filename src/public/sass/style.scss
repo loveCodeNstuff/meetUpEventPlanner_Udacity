@@ -1,0 +1,23 @@
+//***********************
+//       variables
+//************************/
+$lightBlueBGColor: #7cc1f9;
+$whiteBGColor: #fff;
+$redBGColor: #ff0000;
+///************************
+//        mixins
+//************************/
+
+/************************
+        Fonts
+************************/
+// @import url(https://fonts.googleapis.com/css?family=Raleway:500,700);
+
+//************************
+//        imports
+//************************/
+@import './generalScope';
+@import './responsive';
+@import './orDiv';
+@import './header';
+@import './showEvent';
